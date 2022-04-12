@@ -4,6 +4,14 @@
   # Enable proprietary packages.
   nixpkgs.config.allowUnfree = true;
 
+  # Enable nix flakes.
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -13,7 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "qwbarch";
+  networking.hostName = "edward-nixos";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -42,7 +50,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
 
   # Configure keymap in X11
   services.xserver.layout = "us";
