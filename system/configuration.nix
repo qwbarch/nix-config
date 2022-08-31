@@ -25,6 +25,11 @@ in
   i18n.defaultLocale = "en_US.utf8";
 
   services = {
+    dbus = {
+      enable = true;
+      packages = [ pkgs.dconf ];
+    };
+
     xserver = {
       enable = true;
       layout = "us";
@@ -35,22 +40,12 @@ in
       displayManager = {
         defaultSession = "none+xmonad";
 	sddm.autoNumlock = true;
-        autoLogin = {
-          enable = true;
-          user = user;
-	};
       };
 
       windowManager.xmonad = {
         enable = true;
 	enableContribAndExtras = true;
-	config = builtins.readFile ../config/xmonad.hs;
       };
-    };
-
-    dbus = {
-      enable = true;
-      packages = [ pkgs.dconf ];
     };
   };
 

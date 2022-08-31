@@ -5,4 +5,3 @@ main =
     { modMask = mod4Mask,
       terminal = "alacritty"
     }
-
