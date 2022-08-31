@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+repository=~/dotfiles
+
+# Show output of every command
+set +x
+
+home() {
+  pushd $repository
+  nix build .#homeManagerConfiguration.qwbarch.activationPackage
+  ./result/activate
+  popd
+}
+
+system() {
+  pushd $repository
+  sudo nixos-rebuild switch --flake .#
+  popd
+}
+
+case $1 in
+  "home")
+    home;;
+  "system")
+    system;;
+  *)
+    system
+    home;;
+esac
