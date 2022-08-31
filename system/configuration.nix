@@ -74,7 +74,7 @@ in
    
     # Disable gui prompt when git asks for a password.
     extraInit = ''
-      unset -v GIT_ASKPASS
+      unset -v SSH_ASKPASS
     '';
   };
 
