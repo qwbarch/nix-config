@@ -6,5 +6,7 @@
     google-chrome
     neovim
     bitwarden
+    alacritty
+    htop-vim
   ];
 }

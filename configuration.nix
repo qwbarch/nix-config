@@ -29,10 +29,8 @@ in
       enable = true;
       layout = "us";
       xkbOptions = "caps:swapescape";
-
-      libinput = {
-        enable = true;
-      };
+      videoDrivers = [ "nvidia" ];
+      libinput.enable = true;
 
       displayManager = {
         defaultSession = "none+xmonad";
@@ -46,6 +44,7 @@ in
       windowManager.xmonad = {
         enable = true;
 	enableContribAndExtras = true;
+	config = builtins.readFile ./config/xmonad.hs;
       };
     };
 
@@ -76,17 +75,6 @@ in
     vim
     git
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
