@@ -13,7 +13,6 @@ in
 
     # Window manager
     neovim
-    alacritty
     htop-vim
     feh
   ];
