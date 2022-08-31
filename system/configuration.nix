@@ -38,7 +38,7 @@ in
       libinput.enable = true;
 
       displayManager = {
-        defaultSession = "none+xmonad";
+        defaultSession = "none+i3";
 	sddm.autoNumlock = true;
 
 	autoLogin = {
@@ -47,9 +47,9 @@ in
 	};
       };
 
-      windowManager.xmonad = {
+      windowManager.i3 = {
         enable = true;
-	enableContribAndExtras = true;
+	package = pkgs.i3-gaps;
       };
     };
   };

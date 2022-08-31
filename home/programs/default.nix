@@ -1,3 +1,3 @@
 [
-  ./xmonad
+  ./i3-gaps
 ]

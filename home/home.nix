@@ -9,12 +9,12 @@ in
     # Applications
     google-chrome
     bitwarden
+    vscode
 
     # Window manager
     neovim
     alacritty
     htop-vim
-    dmenu
   ];
   home = {
     inherit username;
