@@ -24,7 +24,7 @@
         ${hostName} = lib.nixosSystem {
           inherit system;
 	  modules = [
-            ./configuration.nix
+            ./system/configuration.nix
 	  ];
 	};
       };
@@ -35,7 +35,7 @@
 	  stateVersion = "22.05";
 	  configuration = {
             imports = [
-              ./home.nix
+              ./home/home.nix
 	    ];
 	  };
 	};

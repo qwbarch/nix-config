@@ -44,7 +44,7 @@ in
       windowManager.xmonad = {
         enable = true;
 	enableContribAndExtras = true;
-	config = builtins.readFile ./config/xmonad.hs;
+	config = builtins.readFile ../config/xmonad.hs;
       };
     };
 
