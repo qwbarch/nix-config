@@ -4,12 +4,12 @@ repository=~/dotfiles
 
 # Disable output for pushd
 pushd () {
-    command pushd "$@" > /dev/null
+  command pushd "$@" > /dev/null
 }
 
 # Disable output for popd
 popd () {
-    command popd "$@" > /dev/null
+  command popd "$@" > /dev/null
 }
 
 home() {

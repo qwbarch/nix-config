@@ -6,11 +6,15 @@ in
 {
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    # Applications
     google-chrome
-    neovim
     bitwarden
+
+    # Window manager
+    neovim
     alacritty
     htop-vim
+    dmenu
   ];
   home = {
     inherit username;
@@ -22,5 +26,5 @@ in
   # Restart services on change
   systemd.user.startServices = "sd-switch";
 
-  imports = (import ./programs);
+  imports = (import ./programs) ++ (import ./services);
 }
