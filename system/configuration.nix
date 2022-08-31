@@ -40,6 +40,11 @@ in
       displayManager = {
         defaultSession = "none+xmonad";
 	sddm.autoNumlock = true;
+
+	autoLogin = {
+          enable = true;
+	  user = "qwbarch";
+	};
       };
 
       windowManager.xmonad = {
