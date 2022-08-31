@@ -15,6 +15,7 @@ in
     neovim
     alacritty
     htop-vim
+    feh
   ];
   home = {
     inherit username;

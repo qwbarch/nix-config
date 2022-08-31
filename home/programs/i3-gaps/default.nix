@@ -16,11 +16,6 @@
 	  outer = 5;
 	};
 
-        window = {
-          border = 0;
-	  hideEdgeBorders = "both";
-	};
-
         keybindings = lib.mkOptionDefault {
           # Alacritty terminal
           "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
@@ -33,6 +28,11 @@
         };
 
         startup = [
+	  {
+            command = "${pkgs.feh}/bin/feh --bg-fill ~/.config/background.webp";
+	    always = true;
+	    notification = false;
+	  }
           {
             command = "systemctl --user restart polybar.service";
             always = true;
@@ -42,4 +42,5 @@
       };
     };
   };
+  home.file.".config/background.webp".source = ./background.webp;
 }

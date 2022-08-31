@@ -9,8 +9,6 @@
       alsaSupport = true;
       pulseSupport = true;
     };
-    script = ''
-      polybar &
-    '';
+    script = "polybar &";
   };
 }
