@@ -11,8 +11,13 @@
         modifier = "Mod4";
         bars = [];
 
+	window = {
+          border = 0;
+	  hideEdgeBorders = "both";
+	};
+
 	gaps = {
-          inner = 15;
+          inner = 10;
 	  outer = 5;
 	};
 
