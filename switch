@@ -2,8 +2,15 @@
 
 repository=~/dotfiles
 
-# Show output of every command
-set +x
+# Disable output for pushd
+pushd () {
+    command pushd "$@" > /dev/null
+}
+
+# Disable output for popd
+popd () {
+    command popd "$@" > /dev/null
+}
 
 home() {
   pushd $repository
