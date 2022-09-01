@@ -10,11 +10,14 @@ in
     google-chrome
     bitwarden
     vscode
-
-    # Window manager
     neovim
+
+    # Desktop
     htop-vim
     feh
+
+    # Utility
+    nix-prefetch-git
   ];
   home = {
     inherit username;
