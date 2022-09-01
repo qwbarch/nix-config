@@ -73,7 +73,6 @@ in
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     systemPackages = with pkgs; [
-      vim
       git
     ];
    
@@ -82,6 +81,10 @@ in
       unset -v SSH_ASKPASS
     '';
   };
+
+  fonts.fonts = with pkgs; [
+    font-awesome
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
