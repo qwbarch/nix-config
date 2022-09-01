@@ -87,7 +87,7 @@ in
   };
 
   fonts.fonts = with pkgs; [
-    font-awesome
+    nerdfonts
   ];
 
   # Open ports in the firewall.
