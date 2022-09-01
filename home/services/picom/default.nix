@@ -14,8 +14,8 @@
 
     activeOpacity = "1.0";
     inactiveOpacity = "0.8";
-
     fade = true;
+
     extraOptions = ''
       corner-radius = 8;
     '';
