@@ -14,11 +14,10 @@
       username = "qwbarch";
       hostName = "edward-nixos";
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-	config.allowUnfree = true;
-      };
       lib = nixpkgs.lib;
+      localOverlay = prev: final: {
+        polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
+      };
     in {
       nixosConfigurations = {
         ${hostName} = lib.nixosSystem {
@@ -30,7 +29,14 @@
       };
       homeManagerConfiguration = {
         ${username} = home-manager.lib.homeManagerConfiguration {
-	  inherit system pkgs username;
+	  inherit system username;
+
+          pkgs = import nixpkgs {
+            inherit system;
+            
+	    config.allowUnfree = true;
+	    overlays = [ localOverlay ];
+	  };
 	  homeDirectory = "/home/${username}";
 	  stateVersion = "22.05";
 	  configuration = {

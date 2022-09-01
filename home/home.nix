@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, system, pkgs, ... }:
 
 let
   username = "qwbarch";
@@ -11,10 +11,12 @@ in
     bitwarden
     vscode
     neovim
+    spotify
 
     # Desktop
     htop-vim
     feh
+    playerctl
 
     # Utility
     nix-prefetch-git
