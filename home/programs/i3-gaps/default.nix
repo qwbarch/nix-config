@@ -1,9 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-  xsession = {
-    enable = true;
-
+  xsession = { enable = true;
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
@@ -33,6 +31,11 @@
         };
 
         startup = [
+	  {
+            command = "blueman-applet";
+	    always = true;
+	    notification = false;
+	  }
 	  {
             command = "${pkgs.feh}/bin/feh --bg-fill ~/.config/background.webp";
 	    always = true;

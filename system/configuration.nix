@@ -35,7 +35,10 @@ in
       layout = "us";
       xkbOptions = "caps:swapescape";
       videoDrivers = [ "nvidia" ];
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+	mouse.accelProfile = "flat"; # Disable acceleration.
+      };
 
       displayManager = {
         defaultSession = "none+i3";
@@ -43,7 +46,7 @@ in
 
 	autoLogin = {
           enable = true;
-	  user = "qwbarch";
+	  user = user;
 	};
       };
 
@@ -56,12 +59,13 @@ in
 
   console.useXkbConfig = true;
 
+  hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio"];
     packages = with pkgs; [];
   };
   services.getty.autologinUser = user;
