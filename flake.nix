@@ -7,9 +7,17 @@
       url = github:nix-community/home-manager/release-22.05;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nurpkgs = {
+      url = github:nix-community/NUR; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim-flake = {
+      url = github:gvolpe/neovim-flake;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, nurpkgs, ... }:
     let
       username = "qwbarch";
       hostName = "edward-nixos";
@@ -17,6 +25,19 @@
       lib = nixpkgs.lib;
       localOverlay = prev: final: {
         polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
+      };
+      pkgs = import nixpkgs {
+        inherit system;
+
+	config.allowUnfree = true;
+	overlays = [
+	  localOverlay
+	  nurpkgs.overlay
+	];
+      };
+      nur = import nurpkgs {
+        inherit pkgs;
+	nurpkgs = pkgs;
       };
     in {
       nixosConfigurations = {
@@ -29,14 +50,8 @@
       };
       homeManagerConfiguration = {
         ${username} = home-manager.lib.homeManagerConfiguration {
-	  inherit system username;
+	  inherit system username pkgs;
 
-          pkgs = import nixpkgs {
-            inherit system;
-            
-	    config.allowUnfree = true;
-	    overlays = [ localOverlay ];
-	  };
 	  homeDirectory = "/home/${username}";
 	  stateVersion = "22.05";
 	  configuration = {
