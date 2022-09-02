@@ -14,6 +14,7 @@ set shiftwidth=2
 set autoindent
 set smartcase
 set smartindent
+set smarttab
 
 set number
 set wildmode=longest,list
@@ -57,3 +58,6 @@ map <leader>qf  <Plug>(coc-fix-current)
 
 " Automatically format code on save.
 au BufWrite * :Autoformat
+
+" Toggle the NERDTree file explorer.
+nnoremap <C-t> :NERDTreeToggle<CR>

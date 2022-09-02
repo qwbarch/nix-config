@@ -1,4 +1,5 @@
 { pkgs, lib, ... }:
+
 let
   modifier = "Mod4";
   workspace = {
@@ -9,57 +10,57 @@ let
     discord = "8";
     bitwarden = "9";
   };
-in
-{
-  xsession = { enable = true;
+in {
+  xsession = {
+    enable = true;
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
       config = {
         inherit modifier;
 
-        bars = [];
+        bars = [ ];
 
-	window = {
+        window = {
           border = 0;
-	  hideEdgeBorders = "both";
+          hideEdgeBorders = "both";
 
-	  commands = [
-	    # Start chromium in fullscreen by default.
-	    {
-	      command = "fullscreen enable";
-	      criteria = { class = "Chromium-browser"; };
-	    }
-
-	    # Start vscode in fullscreen by default.
-	    {
+          commands = [
+            # Start chromium in fullscreen by default.
+            {
               command = "fullscreen enable";
-	      criteria = { class = "Code"; };
-	    }
+              criteria = { class = "Chromium-browser"; };
+            }
 
-	    # Bind spotify workspace.
-	    # This is a workaround for spotify not working with "assigns".
-	    {
-	      command = "move to workspace ${workspace.spotify}";
-	      criteria = { class = "Spotify"; };
-	    }
-	  ];
-	};
+            # Start vscode in fullscreen by default.
+            {
+              command = "fullscreen enable";
+              criteria = { class = "Code"; };
+            }
 
-	gaps = {
+            # Bind spotify workspace.
+            # This is a workaround for spotify not working with "assigns".
+            {
+              command = "move to workspace ${workspace.spotify}";
+              criteria = { class = "Spotify"; };
+            }
+          ];
+        };
+
+        gaps = {
           inner = 10;
-	  outer = 5;
-	};
+          outer = 5;
+        };
 
         keybindings = {
           # Alacritty terminal
           "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
 
-	  # Rofi
-	  "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+          # Rofi
+          "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
           # Screenshot
-	  "${modifier}+shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
+          "${modifier}+shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
 
           # Movement
           "${modifier}+j" = "focus down";
@@ -67,78 +68,78 @@ in
           "${modifier}+h" = "focus left";
           "${modifier}+l" = "focus right";
 
-	  # Workspaces
-	  "${modifier}+space" = "workspace ${workspace.terminal}";
-	  "${modifier}+m" = "workspace ${workspace.code}";
-	  "${modifier}+comma" = "workspace ${workspace.browser}";
-	  "${modifier}+period" = "workspace ${workspace.bitwarden}";
-	  "${modifier}+slash" = "workspace ${workspace.spotify}";
-	  "${modifier}+u" = "workspace ${workspace.discord}";
+          # Workspaces
+          "${modifier}+space" = "workspace ${workspace.terminal}";
+          "${modifier}+m" = "workspace ${workspace.code}";
+          "${modifier}+comma" = "workspace ${workspace.browser}";
+          "${modifier}+period" = "workspace ${workspace.bitwarden}";
+          "${modifier}+slash" = "workspace ${workspace.spotify}";
+          "${modifier}+u" = "workspace ${workspace.discord}";
 
-	  # Misc
-	  "${modifier}+shift+q" = "kill"; 
-	  "${modifier}+f" = "fullscreen toggle";
-	  "${modifier}+z" = "split h";
-	  "${modifier}+x" = "split v";
-	  "${modifier}+r" = "mode resize";
+          # Misc
+          "${modifier}+shift+q" = "kill";
+          "${modifier}+f" = "fullscreen toggle";
+          "${modifier}+z" = "split h";
+          "${modifier}+x" = "split v";
+          "${modifier}+r" = "mode resize";
         };
 
-	assigns = {
-	  ${workspace.code} = [ { class = "Code"; } ];
-          ${workspace.browser} = [ { class = "Chromium-browser"; } ];
-	  ${workspace.bitwarden} = [ { class = "Bitwarden"; } ];
-	  ${workspace.discord} = [ { class = "discord"; } ];
-	};
+        assigns = {
+          ${workspace.code} = [{ class = "Code"; }];
+          ${workspace.browser} = [{ class = "Chromium-browser"; }];
+          ${workspace.bitwarden} = [{ class = "Bitwarden"; }];
+          ${workspace.discord} = [{ class = "discord"; }];
+        };
 
-	modes.resize = {
-	  "h" = "resize grow width 10 px or 10 ppt";
-	  "j" = "resize grow height 10 px or 10 ppt";
-	  "k" = "resize shrink height 10 px or 10 ppt";
+        modes.resize = {
+          "h" = "resize grow width 10 px or 10 ppt";
+          "j" = "resize grow height 10 px or 10 ppt";
+          "k" = "resize shrink height 10 px or 10 ppt";
           "l" = "resize shrink width 10 px or 10 ppt";
-	  "Escape" = "mode default";
-	};
+          "Escape" = "mode default";
+        };
 
         startup = [
-	  {
+          {
             command = "${pkgs.feh}/bin/feh --bg-fill ~/.background.webp";
-	    always = true;
-	    notification = false;
-	  }
+            always = true;
+            notification = false;
+          }
           {
             command = "systemctl --user restart polybar.service";
             always = true;
             notification = false;
           }
-	  {
-	    command = "${pkgs.xbanish}/bin/xbanish";
-	    always = true;
-	    notification = false;
-	  }
-	  {
+          {
+            command = "${pkgs.xbanish}/bin/xbanish";
+            always = true;
+            notification = false;
+          }
+          {
             command = "${pkgs.chromium}/bin/chromium --restore-last-session";
-	    always = false;
-	    notification = false;
-	  }
-	  {
-	    command = "${pkgs.bitwarden}/bin/bitwarden";
-	    always = false;
-	    notification = false;
-	  }
-	  {
-	    command = "${pkgs.spotify}/bin/spotify";
-	    always = false;
-	    notification = false;
-	  }
-	  { 
-	    command = "${pkgs.i3}/bin/i3-msg workspace ${workspace.terminal}";
-	    always = false;
-	    notification = false;
-	  }
-	  {
-	    command = "${pkgs.alacritty}/bin/alacritty";
-	    always = false;
-	    notification = false;
-	  }
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.bitwarden}/bin/bitwarden";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.spotify}/bin/spotify";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.i3}/bin/i3-msg workspace ${workspace.terminal}";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.alacritty}/bin/alacritty";
+            always = false;
+            notification = false;
+          }
         ];
       };
     };

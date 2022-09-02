@@ -1,12 +1,8 @@
 { config, pkgs, ... }:
 
-let
-  user = "qwbarch";
-in 
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
+let user = "qwbarch";
+in {
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -37,22 +33,22 @@ in
       videoDrivers = [ "nvidia" ];
       libinput = {
         enable = true;
-	mouse.accelProfile = "flat"; # Disable acceleration.
+        mouse.accelProfile = "flat"; # Disable acceleration.
       };
 
       displayManager = {
         defaultSession = "none+i3";
-	sddm.autoNumlock = true;
+        sddm.autoNumlock = true;
 
-	autoLogin = {
+        autoLogin = {
           enable = true;
-	  user = user;
-	};
+          user = user;
+        };
       };
 
       windowManager.i3 = {
         enable = true;
-	package = pkgs.i3-gaps;
+        package = pkgs.i3-gaps;
       };
     };
   };
@@ -65,8 +61,8 @@ in
 
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "audio"];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    packages = with pkgs; [ ];
   };
   services.getty.autologinUser = user;
 
@@ -76,19 +72,15 @@ in
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    systemPackages = with pkgs; [
-      git
-    ];
-   
+    systemPackages = with pkgs; [ git ];
+
     # Disable gui prompt when git asks for a password.
     extraInit = ''
       unset -v SSH_ASKPASS
     '';
   };
 
-  fonts.fonts = with pkgs; [
-    nerdfonts
-  ];
+  fonts.fonts = with pkgs; [ nerdfonts ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

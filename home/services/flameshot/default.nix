@@ -4,7 +4,7 @@
     settings = {
       General = {
         uiColor = "#FFFFFF";
-	showHelp = false;
+        showHelp = false;
       };
     };
   };

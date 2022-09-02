@@ -14,8 +14,9 @@
       vim-nix
       vim-autoformat
       supertab
-      nerdtree
+      fzf-vim
       nord-vim
+      nerdtree
     ];
     coc = {
       enable = true;
@@ -24,8 +25,8 @@
           noselect = true;
           enablePreview = true;
           enablePreselect = true;
-	        disableKind = true ;
-	      };
+          disableKind = true;
+        };
         languageserver = {
           haskell = {
             command = "haskell-language-server-wrapper";
@@ -43,7 +44,7 @@
             command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
             filetypes = [ "nix" ];
           };
-	      };
+        };
       };
     };
   };

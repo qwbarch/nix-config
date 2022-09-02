@@ -2,8 +2,7 @@
 
 let
   username = "qwbarch";
-in
-{
+in {
   programs.home-manager.enable = true;
   services.blueman-applet.enable = true;
 
@@ -21,6 +20,7 @@ in
     playerctl
     xbanish
     neofetch
+    xclip
 
     # Programming
     nix-prefetch-git
