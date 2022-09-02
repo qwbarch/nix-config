@@ -115,7 +115,7 @@ in
 	    notification = false;
 	  }
 	  {
-            command = "${pkgs.chromium}/bin/chromium";
+            command = "${pkgs.chromium}/bin/chromium --restore-last-session";
 	    always = false;
 	    notification = false;
 	  }
