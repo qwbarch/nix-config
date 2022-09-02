@@ -16,6 +16,7 @@ in
 
     # Desktop
     htop-vim
+    nvtop
     feh
     playerctl
     xbanish
