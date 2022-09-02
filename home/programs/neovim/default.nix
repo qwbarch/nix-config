@@ -12,6 +12,7 @@
       vim-gitgutter
       vim-ormolu
       vim-nix
+      vim-autoformat
       supertab
       nerdtree
       nord-vim
