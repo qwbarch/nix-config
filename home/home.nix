@@ -14,6 +14,7 @@ in
     neovim
     spotify
     discord
+    firefox
 
     # Desktop
     htop-vim
