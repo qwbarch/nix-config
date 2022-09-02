@@ -72,12 +72,15 @@ in
 	  "${modifier}+m" = "workspace ${workspace.code}";
 	  "${modifier}+comma" = "workspace ${workspace.browser}";
 	  "${modifier}+period" = "workspace ${workspace.bitwarden}";
+	  "${modifier}+slash" = "workspace ${workspace.spotify}";
+	  "${modifier}+u" = "workspace ${workspace.discord}";
 
 	  # Misc
 	  "${modifier}+shift+q" = "kill"; 
 	  "${modifier}+f" = "fullscreen toggle";
 	  "${modifier}+z" = "split h";
 	  "${modifier}+x" = "split v";
+	  "${modifier}+r" = "mode resize";
         };
 
 	assigns = {
@@ -85,6 +88,14 @@ in
           ${workspace.browser} = [ { class = "Chromium-browser"; } ];
 	  ${workspace.bitwarden} = [ { class = "Bitwarden"; } ];
 	  ${workspace.discord} = [ { class = "discord"; } ];
+	};
+
+	modes.resize = {
+	  "h" = "resize grow width 10 px or 10 ppt";
+	  "j" = "resize grow height 10 px or 10 ppt";
+	  "k" = "resize shrink height 10 px or 10 ppt";
+          "l" = "resize shrink width 10 px or 10 ppt";
+	  "Escape" = "mode default";
 	};
 
         startup = [
