@@ -26,6 +26,9 @@
 	  # Rofi
 	  "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -display-drun Search";
 
+          # Screenshot
+	  "${modifier}+shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui";
+
           # Vim-inspired movement keys
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";
