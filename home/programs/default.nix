@@ -1,6 +1,7 @@
 [
   ./alacritty
   ./chromium
-  ./i3-gaps
   ./git
+  ./i3-gaps
+  ./rofi
 ]

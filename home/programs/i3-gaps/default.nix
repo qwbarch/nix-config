@@ -23,6 +23,9 @@
           # Alacritty terminal
           "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
 
+	  # Rofi
+	  "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -display-drun Search";
+
           # Vim-inspired movement keys
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";

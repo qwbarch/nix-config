@@ -16,6 +16,10 @@
     inactiveOpacity = "0.8";
     fade = true;
 
+    opacityRule = [
+      "100:class_g *?= 'Rofi'"
+    ];
+
     extraOptions = ''
       corner-radius = 8;
       rounded-corners-exclude = [
