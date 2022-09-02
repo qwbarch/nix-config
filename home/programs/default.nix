@@ -5,5 +5,6 @@
   ./firefox
   ./git
   ./i3-gaps
+  ./neovim
   ./rofi
 ]

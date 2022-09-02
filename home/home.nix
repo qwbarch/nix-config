@@ -11,7 +11,6 @@ in
     # Applications
     bitwarden
     vscode
-    neovim
     spotify
     discord
 
@@ -24,6 +23,7 @@ in
 
     # Programming
     nix-prefetch-git
+    nodejs
   ];
 
   home = {
