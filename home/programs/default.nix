@@ -2,6 +2,7 @@
   ./alacritty
   ./bash
   ./chromium
+  ./firefox
   ./git
   ./i3-gaps
   ./rofi
