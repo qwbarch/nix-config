@@ -7,7 +7,6 @@ in
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     # Applications
-    google-chrome
     bitwarden
     vscode
     neovim
