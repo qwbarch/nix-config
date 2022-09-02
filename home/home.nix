@@ -24,6 +24,7 @@ in
     # Programming
     nix-prefetch-git
     nodejs
+    rnix-lsp
   ];
 
   home = {
