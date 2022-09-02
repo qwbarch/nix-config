@@ -1,17 +1,50 @@
 { pkgs, lib, ... }:
 
+let
+  modifier = "Mod4";
+  workspace = {
+    terminal = "10";
+    code = "1";
+    browser = "2";
+    spotify = "7";
+    discord = "8";
+    bitwarden = "9";
+  };
+in
 {
   xsession = { enable = true;
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
-      config = rec {
-        modifier = "Mod4";
+      config = {
+        inherit modifier;
+
         bars = [];
 
 	window = {
           border = 0;
 	  hideEdgeBorders = "both";
+
+	  commands = [
+	    # Start chromium in fullscreen by default.
+	    {
+	      command = "fullscreen enable";
+	      criteria = { class = "Chromium-browser"; };
+	    }
+
+	    # Start vscode in fullscreen by default.
+	    {
+              command = "fullscreen enable";
+	      criteria = { class = "Code"; };
+	    }
+
+	    # Bind spotify workspace.
+	    # This is a workaround for spotify not working with "assigns".
+	    {
+	      command = "move to workspace ${workspace.spotify}";
+	      criteria = { class = "Spotify"; };
+	    }
+	  ];
 	};
 
 	gaps = {
@@ -34,16 +67,20 @@
           "${modifier}+k" = "focus up";
           "${modifier}+h" = "focus left";
           "${modifier}+l" = "focus right";
+
+	  # Workspaces
         };
+
+	assigns = {
+	  ${workspace.code} = [ { class = "Code"; } ];
+          ${workspace.browser} = [ { class = "Chromium-browser"; } ];
+	  ${workspace.bitwarden} = [ { class = "Bitwarden"; } ];
+	  ${workspace.discord} = [ { class = "discord"; } ];
+	};
 
         startup = [
 	  {
-            command = "blueman-applet";
-	    always = true;
-	    notification = false;
-	  }
-	  {
-            command = "${pkgs.feh}/bin/feh --bg-fill ~/.config/background.webp";
+            command = "${pkgs.feh}/bin/feh --bg-fill ~/.background.webp";
 	    always = true;
 	    notification = false;
 	  }
@@ -57,9 +94,34 @@
 	    always = true;
 	    notification = false;
 	  }
+	  {
+            command = "${pkgs.chromium}/bin/chromium";
+	    always = false;
+	    notification = false;
+	  }
+	  {
+	    command = "${pkgs.bitwarden}/bin/bitwarden";
+	    always = false;
+	    notification = false;
+	  }
+	  {
+	    command = "${pkgs.spotify}/bin/spotify";
+	    always = false;
+	    notification = false;
+	  }
+	  { 
+	    command = "${pkgs.i3}/bin/i3-msg workspace ${workspace.terminal}";
+	    always = false;
+	    notification = false;
+	  }
+	  {
+	    command = "${pkgs.alacritty}/bin/alacritty";
+	    always = false;
+	    notification = false;
+	  }
         ];
       };
     };
   };
-  home.file.".config/background.webp".source = ./background.webp;
+  home.file.".background.webp".source = ./background.webp;
 }

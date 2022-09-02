@@ -5,22 +5,27 @@ let
 in
 {
   programs.home-manager.enable = true;
+  services.blueman-applet.enable = true;
+
   home.packages = with pkgs; [
     # Applications
     bitwarden
     vscode
     neovim
     spotify
+    discord
 
     # Desktop
     htop-vim
     feh
     playerctl
     xbanish
+    neofetch
 
-    # Utility
+    # Programming
     nix-prefetch-git
   ];
+
   home = {
     inherit username;
 
