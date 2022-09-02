@@ -16,6 +16,7 @@ in
     htop-vim
     feh
     playerctl
+    xbanish
 
     # Utility
     nix-prefetch-git

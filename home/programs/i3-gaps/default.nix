@@ -49,6 +49,11 @@
             always = true;
             notification = false;
           }
+	  {
+	    command = "${pkgs.xbanish}/bin/xbanish";
+	    always = true;
+	    notification = false;
+	  }
         ];
       };
     };
