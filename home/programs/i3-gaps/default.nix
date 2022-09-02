@@ -1,5 +1,4 @@
 { pkgs, lib, ... }:
-
 let
   modifier = "Mod4";
   workspace = {
@@ -52,23 +51,33 @@ in
 	  outer = 5;
 	};
 
-        keybindings = lib.mkOptionDefault {
+        keybindings = {
           # Alacritty terminal
           "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
 
 	  # Rofi
-	  "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -display-drun Search";
+	  "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
           # Screenshot
 	  "${modifier}+shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
 
-          # Vim-inspired movement keys
+          # Movement
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";
           "${modifier}+h" = "focus left";
           "${modifier}+l" = "focus right";
 
 	  # Workspaces
+	  "${modifier}+space" = "workspace ${workspace.terminal}";
+	  "${modifier}+m" = "workspace ${workspace.code}";
+	  "${modifier}+comma" = "workspace ${workspace.browser}";
+	  "${modifier}+period" = "workspace ${workspace.bitwarden}";
+
+	  # Misc
+	  "${modifier}+shift+q" = "kill"; 
+	  "${modifier}+f" = "fullscreen toggle";
+	  "${modifier}+z" = "split h";
+	  "${modifier}+x" = "split v";
         };
 
 	assigns = {

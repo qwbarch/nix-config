@@ -1,15 +1,13 @@
 configuration {
-	modi:                       "drun";
+    modi:                       "drun";
     show-icons:                 true;
-    display-drun:               "drun";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
-    drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    display-drun:               "";
+    drun-display-format:        "{name} [<span weight='light'><i>({generic})</i></span>]";
     window-format:              "{w} · {c} · {t}";
 }
 
 * {
+    font:                        "JetBrains Mono Nerd Font 12";
     background:                  #1E2127FF;
     background-alt:              #282B31FF;
     foreground:                  #FFFFFFFF;
@@ -107,7 +105,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "";
+    placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
 
@@ -191,7 +189,7 @@ element alternate.active {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        32px;
+    size:                        26px;
     cursor:                      inherit;
 }
 element-text {

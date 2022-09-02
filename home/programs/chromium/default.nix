@@ -10,6 +10,7 @@
       "gppongmhjkpfnbhagpmjfkannfbllamg" # Wappalyzer
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # MetaMask
       "bfnaelmomeimhlpmgjnjophhpkkoljpa" # Phantom Wallet
+      "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
     ];
   };
 }
