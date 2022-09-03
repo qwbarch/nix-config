@@ -61,3 +61,12 @@ au BufWrite * :Autoformat
 
 " Toggle the NERDTree file explorer.
 nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Fuzzy find files/folders by name.
+nnoremap <C-j> :GFiles<CR>
+
+" Fuzzy find files/folders by content.
+nnoremap <C-k> :Rg<CR>
+
+" Show git differences.
+nnoremap <C-h> :GFiles?<CR>

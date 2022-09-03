@@ -21,6 +21,7 @@ in {
     xbanish
     neofetch
     xclip
+    ripgrep
 
     # Programming
     nix-prefetch-git
