@@ -29,7 +29,7 @@ cp /etc/nixos/hardware-configuration.nix ~/dotfiles/system/hardware-configuratio
 
 Run the system build:
 ```
-sudo nixos-rebuild switch --flake .#edward-nixos
+cd ~/dotfiles && sudo nixos-rebuild switch --flake .#edward-nixos
 ```
 
 Once the system build is finished, reboot your system.
