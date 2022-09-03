@@ -41,7 +41,7 @@ Simply press ``esc`` to use the default settings.
 
 Next, open up terminal using the following hotkeys:
 ```
-windows key + enter
+alt + enter
 ```
 
 Before you run the home manager build, I recommend deleting the configuration files your system comes with by default.  
