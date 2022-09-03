@@ -88,7 +88,19 @@ in {
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flakes";
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    extraOptions = ''
+      experimental-features = nix-command flakes
+
+      # Hydra server for haskell.nix
+      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
+      substituters = https://cache.nixos.org https://hydra.iohk.io
+    '';
   };
 
   # This value determines the NixOS release from which the default
