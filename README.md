@@ -36,12 +36,12 @@ Once the system build is finished, reboot your system.
 
 ## Running the home manager build
 
-You will now have i3-gaps installed with the default settings.  
-On launch, i3 should ask if you want to use the ``windows`` or ``alt`` key as your default ``modifier key``.
+You will now have i3-gaps installed. A prompt will ask if you'd like to generate a new config.  
+Simply press ``esc`` to use the default settings.
 
-After selecting your modifier key, press the following keys to open a terminal window:
+Next, open up terminal using the following hotkeys:
 ```
-{modifier_key} + enter
+windows key + enter
 ```
 
 Before you run the home manager build, I recommend deleting the configuration files your system comes with by default.  
