@@ -61,6 +61,7 @@ in {
 
           # Screenshot
           "${modifier}+shift+s" = "exec ${pkgs.flameshot}/bin/flameshot gui -c";
+          "${modifier}+shift+a" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
           # Movement
           "${modifier}+j" = "focus down";

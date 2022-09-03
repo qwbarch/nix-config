@@ -63,10 +63,16 @@ au BufWrite * :Autoformat
 nnoremap <C-t> :NERDTreeToggle<CR>
 
 " Fuzzy find files/folders by name.
-nnoremap <C-j> :GFiles<CR>
+nnoremap <C-Space> :GFiles<CR>
 
 " Fuzzy find files/folders by content.
-nnoremap <C-k> :Rg<CR>
+nnoremap <C-n> :Rg<CR>
 
 " Show git differences.
-nnoremap <C-h> :GFiles?<CR>
+nnoremap <C-b> :GFiles?<CR>
+
+" Use ctrl + hjkl to move between split panes.
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
