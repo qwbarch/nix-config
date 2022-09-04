@@ -16,6 +16,10 @@ set smartcase
 set smartindent
 set smarttab
 
+" Make auto-complete suggestions cycle in the 'opposite' order.
+" This sets it to what I'm used to from other programs.
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 set number
 set wildmode=longest,list
 set noswapfile
