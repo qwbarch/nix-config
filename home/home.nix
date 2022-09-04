@@ -20,6 +20,7 @@
     neofetch
     xclip
     ripgrep
+    xmousepasteblock
 
     # Programming
     nix-prefetch-git

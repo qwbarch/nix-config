@@ -102,6 +102,11 @@ in {
 
         startup = [
           {
+            command = "${pkgs.xmousepasteblock}/bin/xmousepasteblock";
+            always = true;
+            notification = false;
+          }
+          {
             command = "${pkgs.feh}/bin/feh --bg-fill ~/.background.webp";
             always = true;
             notification = false;

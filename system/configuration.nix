@@ -15,7 +15,7 @@ in {
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Toronto";
+  time.timeZone = "EST5EDT";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
@@ -33,7 +33,10 @@ in {
       videoDrivers = [ "nvidia" ];
       libinput = {
         enable = true;
-        mouse.accelProfile = "flat"; # Disable acceleration.
+        mouse = {
+          accelProfile = "flat"; # Disable acceleration.
+          middleEmulation = false; # Disable emulating middle click using left + right clicks;
+        };
       };
 
       displayManager = {
