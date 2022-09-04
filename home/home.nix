@@ -26,6 +26,7 @@
     nix-prefetch-git
     nodejs
     rnix-lsp
+    ormolu
   ];
 
   # Restart services on change

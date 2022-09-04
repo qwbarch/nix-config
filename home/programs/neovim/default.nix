@@ -4,7 +4,9 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    extraConfig = (builtins.readFile ./init.vim);
+    extraConfig = (builtins.readFile ./init.vim) + ''
+      let g:ormolu_command="${pkgs.ormolu}/bin/ormolu"
+    '';
     plugins = with pkgs.vimPlugins; [
       coc-pyright
       coc-tsserver
@@ -29,7 +31,7 @@
         };
         languageserver = {
           haskell = {
-            command = "haskell-language-server-wrapper";
+            command = "haskell-language-server";
             args = [ "--lsp" ];
             rootPatterns = [
               "*.cabal"

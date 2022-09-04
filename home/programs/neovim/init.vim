@@ -30,6 +30,10 @@ syntax on
 colorscheme nord
 hi Visual ctermbg=DarkGrey
 
+" Disable backups due to issues with coc.nvim
+set nobackup
+set nowritebackup
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -47,21 +51,8 @@ nnoremap <silent> K :call CocActionAsync("doHover")<CR>
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Apply auto-fix to current line.
-map <leader>qf  <Plug>(coc-fix-current)
-
 " Automatically format code on save.
-au BufWrite * :Autoformat
+"au BufWrite * :Autoformat
 
 " Toggle the NERDTree file explorer.
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -80,3 +71,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+inoremap <silent><expr> <c-a> coc#refresh()
+
+" Show available code actions (e.g. imports).
+nmap <leader><Space>  <Plug>(coc-codeaction)
