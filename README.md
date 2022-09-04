@@ -3,6 +3,8 @@
 The following instructions assumes you're running on a non-graphical, fresh installation of NixOS.  
 While a non-graphical installation is not neccessary, I prefer it as my initial choice.
 
+![desktop](https://i.redd.it/b96t7sb4nll91.png)
+
 ## Preparing the system build
 
 Connect to the internet via ``nmcli``:
