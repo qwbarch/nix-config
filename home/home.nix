@@ -1,8 +1,6 @@
 { config, system, pkgs, nur, ... }:
 
-let
-  username = "qwbarch";
-in {
+{
   programs.home-manager.enable = true;
   services.blueman-applet.enable = true;
 
@@ -28,13 +26,6 @@ in {
     nodejs
     rnix-lsp
   ];
-
-  home = {
-    inherit username;
-
-    homeDirectory = "/home/${username}";
-    stateVersion = "22.05";
-  };
 
   # Restart services on change
   systemd.user.startServices = "sd-switch";
