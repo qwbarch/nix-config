@@ -72,7 +72,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-inoremap <silent><expr> <c-a> coc#refresh()
-
 " Show available code actions (e.g. imports).
 nmap <leader><Space>  <Plug>(coc-codeaction)
+
+" Open up a fuzzy finder hoogle window.
+nmap <leader>f  :Hoogle<CR>

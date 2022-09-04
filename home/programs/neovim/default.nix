@@ -1,6 +1,16 @@
 { pkgs, ... }:
 
-{
+let
+  fzf-hoogle-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "fzf-hoogle-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "monkoose";
+      repo = "fzf-hoogle.vim";
+      rev = "16c08d1534aea2cd1cea1a1e20783bd22f634c77";
+      sha256 = "0k7cdi00ixqdkqmyqnapn5aplyn0w78iwvm7ifyi9j3smz57hzhf";
+    };
+  };
+in {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -17,6 +27,7 @@
       vim-autoformat
       supertab
       fzf-vim
+      fzf-hoogle-vim
       nord-vim
       nerdtree
     ];

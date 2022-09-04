@@ -21,6 +21,7 @@
     xclip
     ripgrep
     xmousepasteblock
+    jq
 
     # Programming
     nix-prefetch-git
