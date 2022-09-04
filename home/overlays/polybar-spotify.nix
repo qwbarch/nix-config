@@ -17,12 +17,8 @@ writeShellScript "polybar-spotify.sh" ''
   if [ "$1" == "--status" ]; then
     echo "$STATUS"
   else
-    if [ "$STATUS" = "Stopped" ]; then
-      echo "Inactive"
-    elif [ "$STATUS" = "Paused"  ]; then
-      echo "Inactive"
-    elif [ "$STATUS" = "Inactive"  ]; then
-      echo "$STATUS"
+    if [[ "$STATUS" = @(Stopped|Paused|Inactive) ]]; then
+      echo " "
     else
       playerctl --player=spotify metadata --format "$FORMAT"
     fi
