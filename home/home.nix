@@ -10,6 +10,7 @@
     vscode
     spotify
     discord
+    signal-desktop
 
     # Desktop
     htop-vim

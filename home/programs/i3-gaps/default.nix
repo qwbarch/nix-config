@@ -3,12 +3,15 @@
 let
   modifier = "Mod4";
   workspace = {
-    terminal = "10";
-    code = "1";
-    browser = "2";
-    spotify = "7";
-    discord = "8";
-    bitwarden = "9";
+    terminal = "terminal";
+    code = "code";
+    browser = "browser";
+    spotify = "spotify";
+    discord = "discord";
+    bitwarden = "bitwarden";
+    signal = "signal";
+    extra-1 = "1";
+    extra-2 = "2";
   };
 in {
   xsession = {
@@ -76,6 +79,9 @@ in {
           "${modifier}+period" = "workspace ${workspace.bitwarden}";
           "${modifier}+slash" = "workspace ${workspace.spotify}";
           "${modifier}+u" = "workspace ${workspace.discord}";
+          "${modifier}+i" = "workspace ${workspace.signal}";
+          "${modifier}+o" = "workspace ${workspace.extra-1}";
+          "${modifier}+p" = "workspace ${workspace.extra-2}";
 
           # Misc
           "${modifier}+shift+q" = "kill";
@@ -90,6 +96,7 @@ in {
           ${workspace.browser} = [{ class = "Chromium-browser"; }];
           ${workspace.bitwarden} = [{ class = "Bitwarden"; }];
           ${workspace.discord} = [{ class = "discord"; }];
+          ${workspace.signal} = [ {class = "Signal"; }];
         };
 
         modes.resize = {
