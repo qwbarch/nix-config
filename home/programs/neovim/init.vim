@@ -77,3 +77,6 @@ nmap <leader><Space>  <Plug>(coc-codeaction)
 
 " Open up a fuzzy finder hoogle window.
 nmap <leader>f  :Hoogle<CR>
+
+" Make ormolu aware of language extensions.
+let g:ormolu_options=["-o -XTypeApplications", "-o -XQuasiQuotes", "-o -XTemplateHaskell"]

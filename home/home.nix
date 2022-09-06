@@ -11,6 +11,7 @@
     spotify
     discord
     signal-desktop
+    ledger
 
     # Desktop
     htop-vim
