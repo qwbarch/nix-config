@@ -31,6 +31,7 @@ in {
       fzf-hoogle-vim
       nord-vim
       nerdtree
+      haskell-vim
     ];
     coc = {
       enable = true;
