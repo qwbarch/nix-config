@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-repository=~/dotfiles
+repository=~/nix-config
 
 # Disable output for pushd
 pushd () {

@@ -19,19 +19,19 @@ nix-shell -p git
 
 Clone the repository to your home directory:
 ```
-git clone https://github.com/qwbarch/dotfiles ~/dotfiles
+git clone https://github.com/qwbarch/nix-config ~/nix-config
 ```
 
 ## Running the system build
 
 Before you build your system, you will need to copy over your own ``hardware-configuration.nix`` to the cloned repository.  
 ```
-cp /etc/nixos/hardware-configuration.nix ~/dotfiles/system/hardware-configuration.nix
+cp /etc/nixos/hardware-configuration.nix ~/nix-config/system/hardware-configuration.nix
 ```
 
 Run the system build:
 ```
-cd ~/dotfiles && sudo nixos-rebuild switch --flake .#edward-nixos
+cd ~/nix-config && sudo nixos-rebuild switch --flake .#edward-nixos
 ```
 
 Once the system build is finished, reboot your system.
@@ -54,7 +54,7 @@ sudo rm -r /etc/nixos
 
 Run the home manager build:
 ```
-~/dotfiles/switch home
+~/nix-config/switch home
 ```
 
 Once the build is complete, reboot your system and it's ready to be used!
