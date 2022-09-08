@@ -58,8 +58,11 @@ in {
 
   console.useXkbConfig = true;
 
-  hardware.pulseaudio.enable = true;
-  hardware.bluetooth.enable = true;
+  hardware = {
+    pulseaudio.enable = true;
+    bluetooth.enable = true;
+    ledger.enable = true; # Allow ledger devices to connect.
+  };
   services.blueman.enable = true;
 
   users.users.${user} = {

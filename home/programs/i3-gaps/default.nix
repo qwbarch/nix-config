@@ -10,8 +10,8 @@ let
     discord = "discord";
     bitwarden = "bitwarden";
     signal = "signal";
-    extra-1 = "1";
-    extra-2 = "2";
+    ledger = "ledger";
+    extra = "extra";
   };
 in {
   xsession = {
@@ -80,8 +80,8 @@ in {
           "${modifier}+slash" = "workspace ${workspace.spotify}";
           "${modifier}+u" = "workspace ${workspace.discord}";
           "${modifier}+i" = "workspace ${workspace.signal}";
-          "${modifier}+o" = "workspace ${workspace.extra-1}";
-          "${modifier}+p" = "workspace ${workspace.extra-2}";
+          "${modifier}+o" = "workspace ${workspace.ledger}";
+          "${modifier}+p" = "workspace ${workspace.extra}";
 
           # Misc
           "${modifier}+shift+q" = "kill";
@@ -97,6 +97,7 @@ in {
           ${workspace.bitwarden} = [{ class = "Bitwarden"; }];
           ${workspace.discord} = [{ class = "discord"; }];
           ${workspace.signal} = [ {class = "Signal"; }];
+          ${workspace.ledger} = [ {class = "Ledger Live";} ];
         };
 
         modes.resize = {
@@ -140,6 +141,11 @@ in {
           }
           {
             command = "${pkgs.spotify}/bin/spotify";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.ledger-live-desktop}/bin/ledger-live-desktop";
             always = false;
             notification = false;
           }
