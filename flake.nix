@@ -11,10 +11,6 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-flake = {
-      url = "github:gvolpe/neovim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, nurpkgs, ... }:
