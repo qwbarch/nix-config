@@ -11,6 +11,7 @@
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # MetaMask
       "bfnaelmomeimhlpmgjnjophhpkkoljpa" # Phantom Wallet
       "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+      "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
     ];
   };
 }
