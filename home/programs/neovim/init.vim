@@ -66,12 +66,6 @@ nnoremap <C-n> :Rg<CR>
 " Show git differences.
 nnoremap <C-b> :GFiles?<CR>
 
-" Use ctrl + hjkl to move between split panes.
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " Show available code actions (e.g. imports).
 nmap <leader><Space>  <Plug>(coc-codeaction)
 
