@@ -21,6 +21,7 @@ set smarttab
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 set number
+set relativenumber
 set wildmode=longest,list
 set noswapfile
 
