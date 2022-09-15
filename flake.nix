@@ -44,14 +44,8 @@
       nixosConfigurations = import ./system/configuration.nix {
         inherit pkgs lib system username hostName stateVersion;
       };
-      homeManagerConfiguration = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          inherit system username pkgs;
-
-          homeDirectory = "/home/${username}";
-          stateVersion = "22.05";
-          configuration = { imports = [ ./home/home.nix ]; };
-        };
+      homeManagerConfiguration = import ./home/home.nix {
+        inherit pkgs home-manager system username stateVersion;
       };
     };
 }
