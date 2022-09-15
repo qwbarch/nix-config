@@ -11,10 +11,10 @@
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-      networking.hostName = "edward-nixos";
-
-      # Enable networking
-      networking.networkmanager.enable = true;
+      networking = {
+        inherit hostName;
+        networkmanager.enable = true;
+      };
 
       # Set your time zone.
       time.timeZone = "EST5EDT";
@@ -31,14 +31,13 @@
         xserver = {
           enable = true;
           layout = "us";
-          xkbOptions = "caps:swapescape";
+          xkbOptions = "caps:swapescape"; # Swap caps-lock with escape.
           videoDrivers = [ "nvidia" ];
           libinput = {
             enable = true;
             mouse = {
               accelProfile = "flat"; # Disable acceleration.
-              middleEmulation =
-                false; # Disable emulating middle click using left + right clicks;
+              middleEmulation = false; # Disable emulating middle click using left + right clicks;
             };
           };
 
@@ -112,13 +111,7 @@
         '';
       };
 
-      # This value determines the NixOS release from which the default
-      # settings for stateful data, like file locations and database versions
-      # on your system were taken. It‘s perfectly fine and recommended to leave
-      # this value at the release version of the first install of this system.
-      # Before changing this value read the documentation for this option
-      # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-      system.stateVersion = "22.05"; # Did you read the comment?
+      system.stateVersion = stateVersion;
     }];
   };
 }
