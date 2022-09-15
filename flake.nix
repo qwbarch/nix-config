@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nurpkgs, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nurpkgs, ... }:
     let
       username = "qwbarch";
       hostName = "edward-nixos";
@@ -27,6 +28,10 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [ localOverlay nurpkgs.overlay ];
+      };
+      unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
       nur = import nurpkgs {
         inherit pkgs;
@@ -44,7 +49,7 @@
         inherit pkgs lib system username hostName stateVersion;
       };
       homeManagerConfiguration = import ./home/home.nix {
-        inherit pkgs home-manager system username stateVersion;
+        inherit pkgs unstable home-manager system username stateVersion;
       };
     };
 }
