@@ -135,17 +135,17 @@ in {
             notification = false;
           }
           {
-            command = "${pkgs.bitwarden}/bin/bitwarden";
+            command = "${pkgs.unstable.bitwarden}/bin/bitwarden";
             always = false;
             notification = false;
           }
           {
-            command = "${pkgs.spotify}/bin/spotify";
+            command = "${pkgs.unstable.spotify}/bin/spotify";
             always = false;
             notification = false;
           }
           {
-            command = "${pkgs.ledger-live-desktop}/bin/ledger-live-desktop";
+            command = "${pkgs.unstable.ledger-live-desktop}/bin/ledger-live-desktop";
             always = false;
             notification = false;
           }

@@ -1,7 +1,11 @@
-{ pkgs, unstable, system, home-manager, username, stateVersion, ... }:
+{ pkgs, system, home-manager, username, stateVersion, ... }:
 
 let
   stablePackages = with pkgs; [
+    # Applications
+    vscode
+    discord
+
     # Desktop
     htop-vim
     nvtop
@@ -19,14 +23,12 @@ let
     nodejs
     rnix-lsp
   ];
-  unstablePackages = with unstable; [
+  unstablePackages = with pkgs.unstable; [
     # Applications
-    vscode
-    spotify
     signal-desktop
-    discord
-    discord
+    spotify
     ledger-live-desktop
+    bitwarden
   ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {

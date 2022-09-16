@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,24 +14,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nurpkgs, ... }:
+  outputs = { self, nixpkgs, unstable, home-manager, nurpkgs, ... }:
     let
       username = "qwbarch";
       hostName = "edward-nixos";
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
+      config.allowUnfree = true;
       localOverlay = prev: final: {
-        polybar-spotify =
-          final.callPackage ./home/overlays/polybar-spotify.nix { };
+        polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
+        unstable = import unstable { 
+          inherit config;
+          system = final.system; 
+        };
       };
       pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
+        inherit system config;
         overlays = [ localOverlay nurpkgs.overlay ];
-      };
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
       };
       nur = import nurpkgs {
         inherit pkgs;
@@ -46,10 +44,11 @@
       stateVersion = "22.05"; # Did you read the comment?
     in {
       nixosConfigurations = import ./system/configuration.nix {
-        inherit pkgs lib system username hostName stateVersion;
+        inherit pkgs system username hostName stateVersion;
+        lib = nixpkgs.lib;
       };
       homeManagerConfiguration = import ./home/home.nix {
-        inherit pkgs unstable home-manager system username stateVersion;
+        inherit pkgs home-manager system username stateVersion;
       };
     };
 }
