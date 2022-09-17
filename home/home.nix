@@ -22,6 +22,7 @@ let
     nix-prefetch-git
     nodejs
     rnix-lsp
+    postman
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
