@@ -17,6 +17,7 @@ in {
     extraConfig = (builtins.readFile ./init.vim) + ''
       let g:ormolu_command="${pkgs.ormolu}/bin/ormolu"
       let g:hoogle_fzf_cache_file="$HOME/.cache/hoogle_cache.json"
+      let g:hoogle_open_link="${pkgs.chromium}/bin/chromium"
     '';
     plugins = with pkgs.vimPlugins; [
       coc-pyright
