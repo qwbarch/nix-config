@@ -19,7 +19,6 @@ let
     jq
 
     # Programming
-    git-lfs
     nix-prefetch-git
     nodejs
     rnix-lsp
