@@ -33,6 +33,7 @@ in {
       nord-vim
       nerdtree
       haskell-vim
+      purescript-vim
     ];
     coc = {
       enable = true;
