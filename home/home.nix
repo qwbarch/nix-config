@@ -23,6 +23,8 @@ let
     nodejs
     rnix-lsp
     postman
+    purescript
+    spago
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
