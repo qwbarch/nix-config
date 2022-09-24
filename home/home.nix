@@ -28,6 +28,7 @@ let
     spago
     nodePackages.purty
     nodePackages.purescript-language-server
+    nodePackages.prettier
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
