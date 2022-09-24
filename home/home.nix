@@ -21,6 +21,7 @@ let
     # Programming
     nix-prefetch-git
     nodejs
+    yarn
     rnix-lsp
     postman
     purescript
