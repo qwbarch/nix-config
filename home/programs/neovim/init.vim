@@ -93,8 +93,6 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 " Show hidden files on NERDTree.
 let NERDTreeShowHidden = 1
 
-" when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
-
-" Auto run prettier formatter when file changes are detected.
-autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+" Enable autoformat for prettier.
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
