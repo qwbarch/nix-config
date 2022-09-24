@@ -25,6 +25,8 @@ let
     postman
     purescript
     spago
+    nodePackages.purty
+    nodePackages.purescript-language-server
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications

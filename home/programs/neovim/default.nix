@@ -61,6 +61,19 @@ in {
             command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
             filetypes = [ "nix" ];
           };
+          purescript = {
+            command = "purescript-language-server";
+            args = ["--stdio"];
+            filetypes = ["purescript" "purs"];
+            trace.server = "off";
+            rootPatterns = ["bower.json" "psc-package.json" "spago.dhall"];
+            settings = {
+              purescript = {
+                addSpagoSources = true;
+                formatter = "purty";
+              };
+            };
+          };
         };
       };
     };
