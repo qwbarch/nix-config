@@ -17,6 +17,7 @@ let
     ripgrep
     xmousepasteblock
     jq
+    unzip
 
     # Programming
     nix-prefetch-git
