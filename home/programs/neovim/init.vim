@@ -52,9 +52,6 @@ nnoremap <silent> K :call CocActionAsync("doHover")<CR>
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Automatically format code on save.
-"au BufWrite * :Autoformat
-
 " Toggle the NERDTree file explorer.
 nnoremap <C-t> :NERDTreeToggle<CR>
 

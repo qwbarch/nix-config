@@ -26,7 +26,6 @@ in {
       vim-gitgutter
       vim-ormolu
       vim-nix
-      vim-autoformat
       vim-prettier
       supertab
       fzf-vim
