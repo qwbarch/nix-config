@@ -22,6 +22,7 @@ in {
     plugins = with pkgs.vimPlugins; [
       coc-pyright
       coc-tsserver
+      coc-eslint 
       vim-airline
       vim-gitgutter
       vim-ormolu

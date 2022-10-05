@@ -5,6 +5,7 @@ let
     # Applications
     vscode
     discord
+    peek
 
     # Desktop
     htop-vim
