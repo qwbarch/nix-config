@@ -32,7 +32,6 @@ let
     nodePackages.purescript-language-server
     nodePackages.prettier
     nasm
-    nix-ld
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
