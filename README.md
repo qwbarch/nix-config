@@ -58,3 +58,10 @@ Run the home manager build:
 ```
 
 Once the build is complete, reboot your system and it's ready to be used!
+
+### Note to self
+
+If a binary cache is down, remove the cache from the relevant config files and run the following:
+```
+nix build .#homeManagerConfiguration.qwbarch.activationPackage -fallback --show-trace --option binary-caches https://cache.nixos.org/
+```
