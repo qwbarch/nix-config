@@ -32,6 +32,7 @@ let
     nodePackages.purescript-language-server
     nodePackages.prettier
     nasm
+    esbuild
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
