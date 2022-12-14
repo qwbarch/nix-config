@@ -44,6 +44,9 @@ let
     bitwarden
     parsec-bin
   ];
+  nurPackages = with pkgs.nur.repos; [
+    #ivar.ryujinx
+  ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs system username stateVersion;
@@ -52,7 +55,7 @@ in {
       programs.home-manager.enable = true;
       services.blueman-applet.enable = true;
 
-      home.packages = stablePackages ++ unstablePackages;
+      home.packages = stablePackages ++ unstablePackages ++ nurPackages;
 
       # Restart services on change
       systemd.user.startServices = "sd-switch";
