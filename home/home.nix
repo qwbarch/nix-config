@@ -6,6 +6,7 @@ let
     vscode
     discord
     peek
+    pkgs.nur.repos.ivar.yuzu-mainline
 
     # Desktop
     htop-vim
@@ -19,6 +20,8 @@ let
     xmousepasteblock
     jq
     unzip
+    p7zip
+    unrar
 
     # Programming
     nix-prefetch-git
