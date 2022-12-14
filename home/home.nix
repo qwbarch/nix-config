@@ -6,7 +6,6 @@ let
     vscode
     discord
     peek
-    pkgs.nur.repos.ivar.yuzu-mainline
 
     # Desktop
     htop-vim
@@ -43,6 +42,7 @@ let
     spotify
     ledger-live-desktop
     bitwarden
+    parsec-bin
   ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {
