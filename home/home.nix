@@ -6,6 +6,7 @@ let
     vscode
     discord
     peek
+    ryujinx
 
     # Desktop
     htop-vim
@@ -42,10 +43,9 @@ let
     spotify
     ledger-live-desktop
     bitwarden
-    parsec-bin
   ];
   nurPackages = with pkgs.nur.repos; [
-    #ivar.ryujinx
+    iagocq.parsec
   ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {
