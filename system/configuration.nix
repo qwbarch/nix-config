@@ -23,6 +23,18 @@
       i18n.defaultLocale = "en_US.utf8";
 
       services = {
+        joycond.enable = true;
+        blueman.enable = true;
+        getty.autologinUser = username;
+
+        udev.extraRules = ''
+          # Nintendo Switch Pro Controller over USB hidraw
+          KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess"
+
+          # Nintendo Switch Pro Controller over bluetooth hidraw
+          KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0660", TAG+="uaccess"
+        '';
+
         dbus = {
           enable = true;
           packages = [ pkgs.dconf ];
@@ -65,14 +77,12 @@
         bluetooth.enable = true;
         ledger.enable = true; # Allow ledger devices to connect.
       };
-      services.blueman.enable = true;
 
       users.users.${username} = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "wheel" "audio" ];
         packages = with pkgs; [ ];
       };
-      services.getty.autologinUser = username;
 
       # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
