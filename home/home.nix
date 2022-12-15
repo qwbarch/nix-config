@@ -46,7 +46,6 @@ let
   ];
   nurPackages = with pkgs.nur.repos; [
     iagocq.parsec
-    ivar.yuzu-mainline
   ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {
