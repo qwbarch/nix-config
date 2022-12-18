@@ -19,7 +19,10 @@
       username = "qwbarch";
       hostName = "edward-nixos";
       system = "x86_64-linux";
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = ["libav-11.12"];
+      };
       localOverlay = prev: final: {
         polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
         unstable = import unstable { 

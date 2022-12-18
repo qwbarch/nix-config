@@ -6,6 +6,10 @@ let
     vscode
     discord
     peek
+    obs-studio
+
+    # Libraries
+    libav
 
     # Desktop
     htop-vim
