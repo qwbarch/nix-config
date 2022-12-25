@@ -9,7 +9,7 @@ let
     obs-studio
 
     # Libraries
-    libav
+    ffmpeg
 
     # Desktop
     htop-vim
