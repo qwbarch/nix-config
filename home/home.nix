@@ -8,9 +8,6 @@ let
     peek
     obs-studio
 
-    # Libraries
-    ffmpeg
-
     # Desktop
     htop-vim
     nvtop
@@ -47,9 +44,13 @@ let
     ledger-live-desktop
     bitwarden
     ryujinx
+    parsec-bin
+
+    #Libraries
+    ffmpeg-full
   ];
   nurPackages = with pkgs.nur.repos; [
-    iagocq.parsec
+    #iagocq.parsec
   ];
 in {
   ${username} = home-manager.lib.homeManagerConfiguration {
