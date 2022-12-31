@@ -7,6 +7,7 @@ let
     discord
     peek
     obs-studio
+    vlc
 
     # Desktop
     htop-vim
