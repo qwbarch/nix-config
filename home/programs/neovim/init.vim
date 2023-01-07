@@ -70,15 +70,6 @@ nmap <leader><Space>  <Plug>(coc-codeaction)
 " Open up a fuzzy finder hoogle window.
 nmap <leader>f  :Hoogle<CR>
 
-" Make ormolu aware of language extensions.
-let g:ormolu_options = [
-      \"-o -XTypeApplications",
-      \"-o -XQuasiQuotes",
-      \"-o -XTemplateHaskell",
-      \"-o -XNegativeLiterals",
-      \"-o -XNumericUnderscores"
-      \]
-
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
 let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`

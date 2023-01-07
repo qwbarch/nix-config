@@ -10,24 +10,23 @@ let
       sha256 = "0k7cdi00ixqdkqmyqnapn5aplyn0w78iwvm7ifyi9j3smz57hzhf";
     };
   };
-in {
+in
+{
   programs.neovim = {
     enable = true;
     vimAlias = true;
     extraConfig = (builtins.readFile ./init.vim) + ''
-      let g:ormolu_command="${pkgs.ormolu}/bin/ormolu"
       let g:hoogle_fzf_cache_file="$HOME/.cache/hoogle_cache.json"
       let g:hoogle_open_link="${pkgs.chromium}/bin/chromium"
     '';
     plugins = with pkgs.vimPlugins; [
       coc-pyright
       coc-tsserver
-      coc-eslint 
+      coc-eslint
       vim-airline
       vim-gitgutter
-      vim-ormolu
       vim-nix
-      vim-prettier
+      #vim-prettier
       supertab
       fzf-vim
       fzf-hoogle-vim
@@ -39,6 +38,17 @@ in {
     coc = {
       enable = true;
       settings = {
+        coc.preferences = {
+          formatOnSaveFiletypes = [
+            "haskell"
+            "purescript"
+            "nix"
+            "javascript"
+            "typescript"
+            "html"
+            "css"
+          ];
+        };
         suggest = {
           noselect = true;
           enablePreview = true;
@@ -57,6 +67,7 @@ in {
               "hie.yaml"
             ];
             filetypes = [ "haskell" "lhaskell" "hs" "lhs" ];
+            settings.haskell.formatter = "ormolu";
           };
           nix = {
             command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
@@ -64,10 +75,10 @@ in {
           };
           purescript = {
             command = "purescript-language-server";
-            args = ["--stdio"];
-            filetypes = ["purescript" "purs"];
+            args = [ "--stdio" ];
+            filetypes = [ "purescript" "purs" ];
             trace.server = "off";
-            rootPatterns = ["bower.json" "psc-package.json" "spago.dhall"];
+            rootPatterns = [ "bower.json" "psc-package.json" "spago.dhall" ];
             settings = {
               purescript = {
                 addSpagoSources = true;

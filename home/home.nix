@@ -53,7 +53,8 @@ let
   nurPackages = with pkgs.nur.repos; [
     #iagocq.parsec
   ];
-in {
+in
+{
   ${username} = home-manager.lib.homeManagerConfiguration {
     inherit pkgs system username stateVersion;
     homeDirectory = "/home/${username}";
