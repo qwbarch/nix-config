@@ -82,5 +82,5 @@ let g:haskell_backpack = 1                " to enable highlighting of backpack k
 let NERDTreeShowHidden = 1
 
 " Enable autoformat for prettier.
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
+"let g:prettier#autoformat = 1
+"let g:prettier#autoformat_require_pragma = 0

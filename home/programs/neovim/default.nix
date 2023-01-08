@@ -67,7 +67,9 @@ in
               "hie.yaml"
             ];
             filetypes = [ "haskell" "lhaskell" "hs" "lhs" ];
-            settings.haskell.formatter = "ormolu";
+            settings.haskell = {
+              formattingProvider = "fourmolu";
+            };
           };
           nix = {
             command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
@@ -79,11 +81,9 @@ in
             filetypes = [ "purescript" "purs" ];
             trace.server = "off";
             rootPatterns = [ "bower.json" "psc-package.json" "spago.dhall" ];
-            settings = {
-              purescript = {
-                addSpagoSources = true;
-                formatter = "purty";
-              };
+            settings.purescript = {
+              addSpagoSources = true;
+              formatter = "purty";
             };
           };
         };
