@@ -78,9 +78,15 @@
         ledger.enable = true; # Allow ledger devices to connect.
       };
 
+      # Enable docker in rootless mode.
+      virtualisation.docker.rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+
       users.users.${username} = {
         isNormalUser = true;
-        extraGroups = [ "networkmanager" "wheel" "audio" ];
+        extraGroups = [ "networkmanager" "wheel" "audio" "docker" ];
         packages = with pkgs; [ ];
       };
 
