@@ -96,7 +96,7 @@
       environment = {
         # List packages installed in system profile. To search, run:
         # $ nix search wget
-        systemPackages = with pkgs; [ git ];
+        systemPackages = with pkgs; [ git docker-compose ];
 
         # Disable gui prompt when git asks for a password.
         extraInit = ''
