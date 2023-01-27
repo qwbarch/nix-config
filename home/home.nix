@@ -8,6 +8,7 @@ let
     peek
     obs-studio
     vlc
+    tdesktop
 
     # Desktop
     htop-vim
