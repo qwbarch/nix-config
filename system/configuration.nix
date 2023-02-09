@@ -23,6 +23,7 @@
       i18n.defaultLocale = "en_US.utf8";
 
       services = {
+        gvfs.enable = true; # Nautilus file manager.
         joycond.enable = true;
         blueman.enable = true;
         getty.autologinUser = username;
@@ -96,7 +97,12 @@
       environment = {
         # List packages installed in system profile. To search, run:
         # $ nix search wget
-        systemPackages = with pkgs; [ git docker-compose ];
+        systemPackages = with pkgs; [
+          git
+          docker-compose
+          gnome.adwaita-icon-theme
+          gnome.nautilus
+        ];
 
         # Disable gui prompt when git asks for a password.
         extraInit = ''
