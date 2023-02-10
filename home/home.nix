@@ -9,6 +9,7 @@ let
     obs-studio
     vlc
     tdesktop
+    arcanists2
 
     # Desktop
     htop-vim

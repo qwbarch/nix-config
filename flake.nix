@@ -23,6 +23,7 @@
       };
       localOverlay = prev: final: {
         polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
+        arcanists2 = final.callPackage ./home/overlays/arcanists2.nix { };
         unstable = import unstable {
           inherit config;
           system = final.system;
