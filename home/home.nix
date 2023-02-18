@@ -9,6 +9,7 @@ let
     obs-studio
     vlc
     tdesktop
+    arcanists2
 
     # Desktop
     htop-vim
@@ -24,6 +25,7 @@ let
     unzip
     p7zip
     unrar
+    steam-run-native
 
     # Programming
     nix-prefetch-git
