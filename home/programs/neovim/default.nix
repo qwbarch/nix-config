@@ -20,6 +20,7 @@ in
       let g:hoogle_open_link="${pkgs.chromium}/bin/chromium"
     '';
     plugins = with pkgs.vimPlugins; [
+      coc-java
       coc-pyright
       coc-tsserver
       coc-eslint

@@ -40,6 +40,8 @@ let
     nodePackages.prettier
     nasm
     esbuild
+    jdk17_headless
+    gradle
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications

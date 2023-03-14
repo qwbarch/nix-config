@@ -46,7 +46,7 @@ stdenv.mkDerivation
   '';
 
   meta = with lib; {
-    inherit name description;
+    inherit description;
     homepage = "https://www.arcanists2.com";
     platforms = platforms.linux;
   };
