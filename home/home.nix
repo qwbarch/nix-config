@@ -10,6 +10,7 @@ let
     vlc
     tdesktop
     arcanists2
+    steam
 
     # Desktop
     htop-vim

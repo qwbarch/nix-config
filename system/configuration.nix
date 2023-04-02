@@ -77,6 +77,7 @@
         pulseaudio.enable = true;
         bluetooth.enable = true;
         ledger.enable = true; # Allow ledger devices to connect.
+        opengl.driSupport32Bit = true; # Required for steam.
       };
 
       # Enable docker in rootless mode.
@@ -113,7 +114,7 @@
       fonts.fonts = with pkgs; [ nerdfonts ];
 
       # Open ports in the firewall.
-      # networking.firewall.allowedTCPPorts = [ ... ];
+      networking.firewall.allowedTCPPorts = [ 3000 8080 ];
       # networking.firewall.allowedUDPPorts = [ ... ];
 
       nix = {
