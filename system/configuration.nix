@@ -62,6 +62,9 @@
               enable = true;
               user = username;
             };
+
+            # Enable 240hz refresh rate.
+            setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 --mode 1920x1080 --rate 239.76";
           };
 
           windowManager.i3 = {

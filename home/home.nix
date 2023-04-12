@@ -11,6 +11,7 @@ let
     tdesktop
     arcanists2
     steam
+    lutris
 
     # Desktop
     htop-vim
