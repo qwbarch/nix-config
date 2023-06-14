@@ -44,6 +44,7 @@ let
     esbuild
     jdk17_headless
     gradle
+    python3
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
@@ -59,6 +60,8 @@ let
   ];
   nurPackages = with pkgs.nur.repos; [
     #iagocq.parsec
+  ];
+  pythonPackages = with pkgs.python3; [
   ];
 in
 {
