@@ -43,7 +43,7 @@ in
           formatOnSaveFiletypes = [
             "haskell"
             "purescript"
-            #"nix"
+            "nix"
             "javascript"
             "typescript"
             "html"
