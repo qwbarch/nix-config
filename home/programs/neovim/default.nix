@@ -84,7 +84,7 @@ in
             rootPatterns = [ "bower.json" "psc-package.json" "spago.dhall" ];
             settings.purescript = {
               addSpagoSources = true;
-              formatter = "purty";
+              formatter = "tidy";
             };
           };
         };

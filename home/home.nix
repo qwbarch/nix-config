@@ -12,6 +12,7 @@ let
     arcanists2
     steam
     lutris
+    gimp
 
     # Desktop
     htop-vim
@@ -35,10 +36,10 @@ let
     yarn
     rnix-lsp
     postman
-    purescript
-    spago
-    nodePackages.purty
-    nodePackages.purescript-language-server
+    #purescript
+    ##spago
+    #nodePackages.purty
+    #nodePackages.purescript-language-server
     nodePackages.prettier
     nasm
     esbuild
