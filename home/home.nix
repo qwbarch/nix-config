@@ -57,7 +57,7 @@ let
     ryujinx
     parsec-bin
 
-    #Libraries
+    # Libraries
     ffmpeg-full
   ];
   nurPackages = with pkgs.nur.repos; [
