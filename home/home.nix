@@ -31,6 +31,7 @@ let
     steam-run-native
 
     # Programming
+    conda
     nix-prefetch-git
     nodejs
     yarn
