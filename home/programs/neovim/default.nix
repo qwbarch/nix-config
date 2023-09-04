@@ -58,7 +58,7 @@ in
         };
         languageserver = {
           haskell = {
-            command = "haskell-language-server";
+            command = "haskell-language-server-wrapper";
             args = [ "--lsp" ];
             rootPatterns = [
               "*.cabal"
@@ -85,6 +85,9 @@ in
             settings.purescript = {
               addSpagoSources = true;
               formatter = "tidy";
+              censorWarnings = [
+                "MissingTypeDeclaration"
+              ];
             };
           };
         };

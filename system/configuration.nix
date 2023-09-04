@@ -106,6 +106,7 @@
           docker-compose
           gnome.adwaita-icon-theme
           gnome.nautilus
+          xorg.libXtst
         ];
 
         # Disable gui prompt when git asks for a password.

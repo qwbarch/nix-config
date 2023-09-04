@@ -12,8 +12,11 @@ let
     signal = "signal";
     ledger = "ledger";
     extra = "extra";
+    steam = "steam";
+    steam-extra = "steam-extra";
   };
-in {
+in
+{
   xsession = {
     enable = true;
     windowManager.i3 = {
@@ -46,6 +49,13 @@ in {
             {
               command = "move to workspace ${workspace.spotify}";
               criteria = { class = "Spotify"; };
+            }
+
+            # Bind steam workspace.
+            # This is a workaround for spotify not working with "assigns".
+            {
+              command = "move to workspace ${workspace.steam}";
+              criteria = { class = "steam"; };
             }
           ];
         };
@@ -82,6 +92,8 @@ in {
           "${modifier}+i" = "workspace ${workspace.signal}";
           "${modifier}+o" = "workspace ${workspace.ledger}";
           "${modifier}+p" = "workspace ${workspace.extra}";
+          "${modifier}+backslash" = "workspace ${workspace.steam}";
+          "${modifier}+bracketright" = "workspace ${workspace.steam-extra}";
 
           # Misc
           "${modifier}+shift+q" = "kill";
@@ -96,8 +108,9 @@ in {
           ${workspace.browser} = [{ class = "Chromium-browser"; }];
           ${workspace.bitwarden} = [{ class = "Bitwarden"; }];
           ${workspace.discord} = [{ class = "discord"; }];
-          ${workspace.signal} = [ {class = "Signal"; }];
-          ${workspace.ledger} = [ {class = "Ledger Live";} ];
+          ${workspace.signal} = [{ class = "Signal"; }];
+          ${workspace.ledger} = [{ class = "Ledger Live"; }];
+          ${workspace.steam} = [{ class = "^Steam$"; }];
         };
 
         modes.resize = {
@@ -156,6 +169,11 @@ in {
           }
           {
             command = "${pkgs.alacritty}/bin/alacritty";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.steam}/bin/steam";
             always = false;
             notification = false;
           }

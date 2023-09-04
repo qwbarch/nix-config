@@ -47,6 +47,9 @@ let
     jdk17_headless
     gradle
     python3
+    stack
+    haskell-language-server
+    ghc
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
@@ -74,7 +77,7 @@ in
       programs.home-manager.enable = true;
       services.blueman-applet.enable = true;
 
-      home.packages = stablePackages ++ unstablePackages ++ nurPackages;
+      home.packages = stablePackages ++ unstablePackages ++ nurPackages ++ pythonPackages;
 
       # Restart services on change
       systemd.user.startServices = "sd-switch";
