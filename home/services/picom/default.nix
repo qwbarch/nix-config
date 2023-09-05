@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  opaqueWindows = [ "Rofi" "firefox" "steam" ];
+in
 {
   services.picom = {
     enable = true;
@@ -16,10 +19,7 @@
     inactiveOpacity = "0.8";
     fade = true;
 
-    opacityRule = [
-      "100:class_g *?= 'Rofi'"
-      "100:class_g *?= 'firefox'"
-    ];
+    opacityRule = map (window: "100:class_g *?= '${window}'") opaqueWindows;
 
     extraOptions = ''
       corner-radius = 8;

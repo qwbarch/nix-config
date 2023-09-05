@@ -54,7 +54,7 @@ in
             # Bind steam workspace.
             # This is a workaround for spotify not working with "assigns".
             {
-              command = "move to workspace ${workspace.steam}";
+              command = "move to workspace ${workspace.steam}; floating enable";
               criteria = { class = "steam"; };
             }
           ];
