@@ -188,7 +188,7 @@ in
             notification = false;
           }
           {
-            command = "${pkgs.awakened-poe-trade}/bin/awakened-poe-trade}";
+            command = "${pkgs.awakened-poe-trade}/bin/awakened-poe-trade";
             always = false;
             notification = false;
           }
