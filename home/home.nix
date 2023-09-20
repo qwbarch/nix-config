@@ -13,6 +13,8 @@ let
     steam
     lutris
     gimp
+    avidemux
+    awakened-poe-trade
 
     # Desktop
     htop-vim

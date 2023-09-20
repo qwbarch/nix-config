@@ -24,6 +24,7 @@
       localOverlay = prev: final: {
         polybar-spotify = final.callPackage ./home/overlays/polybar-spotify.nix { };
         arcanists2 = final.callPackage ./home/overlays/arcanists2.nix { };
+        awakened-poe-trade = final.callPackage ./home/overlays/awakened-poe-trade.nix { };
         unstable = import unstable {
           inherit config;
           system = final.system;

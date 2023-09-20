@@ -13,7 +13,7 @@ let
     ledger = "ledger";
     extra = "extra";
     steam = "steam";
-    steam-extra = "steam-extra";
+    steam-app = "steam-app";
   };
 in
 {
@@ -52,10 +52,20 @@ in
             }
 
             # Bind steam workspace.
-            # This is a workaround for spotify not working with "assigns".
             {
               command = "move to workspace ${workspace.steam}; floating enable";
               criteria = { class = "steam"; };
+            }
+
+            # Bind Path of Exile to steam-app workspace.
+            {
+              command = "move to workspace ${workspace.steam-app};fullscreen enable";
+              criteria = { class = "steam_app_238960"; };
+            }
+
+            {
+              command = "floating enable";
+              criteria = { class = "awakened-poe-trade"; };
             }
           ];
         };
@@ -92,8 +102,8 @@ in
           "${modifier}+i" = "workspace ${workspace.signal}";
           "${modifier}+o" = "workspace ${workspace.ledger}";
           "${modifier}+p" = "workspace ${workspace.extra}";
-          "${modifier}+backslash" = "workspace ${workspace.steam}";
-          "${modifier}+bracketright" = "workspace ${workspace.steam-extra}";
+          "${modifier}+bracketright" = "workspace ${workspace.steam}";
+          "${modifier}+backslash" = "workspace ${workspace.steam-app}";
 
           # Misc
           "${modifier}+shift+q" = "kill";
@@ -174,6 +184,11 @@ in
           }
           {
             command = "${pkgs.steam}/bin/steam";
+            always = false;
+            notification = false;
+          }
+          {
+            command = "${pkgs.awakened-poe-trade}/bin/awakened-poe-trade}";
             always = false;
             notification = false;
           }

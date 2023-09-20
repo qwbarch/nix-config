@@ -43,9 +43,9 @@
 
         xserver = {
           enable = true;
+          videoDrivers = [ "nvidia" ];
           layout = "us";
           xkbOptions = "caps:swapescape"; # Swap caps-lock with escape.
-          videoDrivers = [ "nvidia" ];
           libinput = {
             enable = true;
             mouse = {
@@ -71,6 +71,25 @@
             enable = true;
             package = pkgs.i3-gaps;
           };
+
+          config = ''
+            Section "Device"
+                Identifier  "Configured Video Device"
+                Driver      "dummy"
+                VideoRam    16384
+            EndSection
+
+            Section "Screen"
+                Identifier  "Default Screen"
+                Monitor     "Configured Monitor"
+                Device      "Configured Video Device"
+                DefaultDepth 24
+                SubSection "Display"
+                Depth 24
+                Modes "1920x0180"
+                EndSubSection
+            EndSection
+          '';
         };
       };
 
