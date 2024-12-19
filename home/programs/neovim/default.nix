@@ -27,6 +27,7 @@ in
       vim-airline
       vim-gitgutter
       vim-nix
+      vim-wakatime
       #vim-prettier
       supertab
       fzf-vim
@@ -87,6 +88,7 @@ in
               formatter = "tidy";
               censorWarnings = [
                 "MissingTypeDeclaration"
+                "ImplicitImport"
               ];
             };
           };

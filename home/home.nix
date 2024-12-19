@@ -15,6 +15,7 @@ let
     gimp
     avidemux
     awakened-poe-trade
+    freetube
 
     # Desktop
     htop-vim
@@ -52,6 +53,9 @@ let
     stack
     haskell-language-server
     ghc
+    gnumake
+    gcc
+    imagemagick
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
