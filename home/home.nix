@@ -56,6 +56,7 @@ let
     gnumake
     gcc
     imagemagick
+    clang-tools
   ];
   unstablePackages = with pkgs.unstable; [
     # Applications
