@@ -24,6 +24,7 @@ in
       coc-pyright
       coc-tsserver
       coc-eslint
+      coc-clangd
       vim-airline
       vim-gitgutter
       vim-nix
@@ -49,6 +50,7 @@ in
             "typescript"
             "html"
             "css"
+            "c"
           ];
         };
         suggest = {
