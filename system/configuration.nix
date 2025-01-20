@@ -28,6 +28,23 @@
         blueman.enable = true;
         getty.autologinUser = username;
 
+        printing = {
+          enable = true;
+          drivers = [ pkgs.samsung-unified-linux-driver ];
+          listenAddresses = [ "*:631" ];
+          allowFrom = [ "all" ];
+          browsing = true;
+          defaultShared = true;
+        };
+        avahi = {
+          enable = true;
+          openFirewall = true;
+          publish = {
+            enable = true;
+            userServices = true;
+          };
+        };
+
         udev.extraRules = ''
           # Nintendo Switch Pro Controller over USB hidraw
           KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess"

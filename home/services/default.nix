@@ -2,4 +2,5 @@
   ./flameshot
   ./polybar
   ./picom
+  ./redshift
 ]

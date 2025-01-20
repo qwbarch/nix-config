@@ -10,8 +10,8 @@
       "gppongmhjkpfnbhagpmjfkannfbllamg" # Wappalyzer
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # MetaMask
       "bfnaelmomeimhlpmgjnjophhpkkoljpa" # Phantom Wallet
-      "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
       "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
+      "lebddibgdgkjheglmfpannlomiobdbhm" # Chrome History Cleaner
     ];
   };
 }

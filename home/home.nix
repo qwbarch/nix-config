@@ -16,6 +16,7 @@ let
     avidemux
     awakened-poe-trade
     freetube
+    flux
 
     # Desktop
     htop-vim
@@ -66,6 +67,7 @@ let
     bitwarden
     ryujinx
     parsec-bin
+    anki-bin
 
     # Libraries
     ffmpeg-full
