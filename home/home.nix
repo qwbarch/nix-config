@@ -17,6 +17,7 @@ let
     awakened-poe-trade
     freetube
     flux
+    libreoffice-qt
 
     # Desktop
     htop-vim

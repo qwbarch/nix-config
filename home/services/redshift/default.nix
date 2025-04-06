@@ -8,9 +8,6 @@
       day = 6500;
       night = 1900;
     };
-    settings = {
-      transition = 1;
-    };
   };
 }
 

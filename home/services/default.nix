@@ -3,4 +3,5 @@
   ./polybar
   ./picom
   ./redshift
+  ./linux-wallpaperengine
 ]

@@ -11,7 +11,6 @@
       "nkbihfbeogaeaoehlefnkodbefgpgknn" # MetaMask
       "bfnaelmomeimhlpmgjnjophhpkkoljpa" # Phantom Wallet
       "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
-      "lebddibgdgkjheglmfpannlomiobdbhm" # Chrome History Cleaner
     ];
   };
 }

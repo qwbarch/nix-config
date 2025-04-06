@@ -116,7 +116,21 @@
         pulseaudio.enable = true;
         bluetooth.enable = true;
         ledger.enable = true; # Allow ledger devices to connect.
-        opengl.driSupport32Bit = true; # Required for steam.
+
+        opengl = {
+          enable = true;
+          driSupport32Bit = true; # Required for steam.
+          #extraPackages = with pkgs.unstable; [
+          #  libva
+          #  vaapiVdpau
+          #  libvdpau-va-gl
+
+          #  # Needed for Wallpaper Engine.
+          #  #vaapiVdpau
+          #  #libvdpau-va-gl
+          #  #nvidia-vaapi-driver
+          #];
+        };
       };
 
       # Enable docker in rootless mode.
@@ -137,13 +151,23 @@
       environment = {
         # List packages installed in system profile. To search, run:
         # $ nix search wget
-        systemPackages = with pkgs; [
+        systemPackages = (with pkgs; [
           git
           docker-compose
           gnome.adwaita-icon-theme
           gnome.nautilus
           xorg.libXtst
-        ];
+        ]) ++ (with pkgs.unstable; [
+          # Required for Wallpaper Engine.
+          #cmake
+          #lz4
+          #zlib
+          #SDL2
+          #ffmpeg
+          #glm
+          #glew
+          #mpv
+        ]);
 
         # Disable gui prompt when git asks for a password.
         extraInit = ''
