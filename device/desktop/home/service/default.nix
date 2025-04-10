@@ -1,2 +1,4 @@
 [
+  ./xmonad
+  ./flameshot
 ]

@@ -2,6 +2,10 @@
 
 let
   packages = with pkgs; [
+    # Applications
+    bitwarden
+    spotify
+
     # Programming
     vscode
   ];
@@ -17,15 +21,12 @@ in
   };
 
   home = {
-    inherit username;
+    inherit username stateVersion packages;
     homeDirectory = "/home/${username}";
   };
 
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
-  home = {
-    inherit stateVersion packages;
-  };
 
   imports = (import ./program) ++ (import ./service);
 }
