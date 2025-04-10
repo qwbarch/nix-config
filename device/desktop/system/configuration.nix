@@ -1,4 +1,4 @@
-{ pkgs, hostName, stateVersion, ... }:
+{ pkgs, hostName, stateVersion, username, ... }:
 
 {
   imports =
@@ -40,11 +40,23 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+     windowManager.xmonad = {
+         enable = true;
+         enableContribAndExtras = true;
+         extraPackages = haskellPackges: [
+         ];
+         config = builtins.readFile ../xmonad/Main.hs;
+       };
+    displayManager = {
+      defaultSession = "none+xmonad";
+      autoLogin = {
+        enable = true;
+        user = username;
+      };
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -77,20 +89,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.qwbarch = {
     isNormalUser = true;
-    description = "Edward Yang";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "qwbarch";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -101,7 +104,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
 

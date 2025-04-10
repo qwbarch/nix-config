@@ -29,7 +29,9 @@
     {
       nixosConfigurations = {
         ${hostName} = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit hostName stateVersion; };
+          specialArgs = {
+            inherit hostName stateVersion username;
+          };
           modules = [./system/configuration.nix];
         };
       };
