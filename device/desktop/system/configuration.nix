@@ -12,10 +12,6 @@
 
   networking.hostName = hostName;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -65,6 +61,13 @@
         user = username;
       };
     };
+    libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat"; # Disable mouse acceleration.
+        middleEmulation = false; # Disable emulating middle click using left + right click.
+      };
+    };
   };
 
   # Configure keymap in X11
@@ -92,9 +95,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.qwbarch = {
     isNormalUser = true;
@@ -111,6 +111,7 @@
   environment.systemPackages = with pkgs; [];
 
   # Some programs need SUID wrappers, can be configured further or are
+  programs.steam.enable = true;
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {

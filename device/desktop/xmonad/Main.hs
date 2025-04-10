@@ -26,5 +26,6 @@ main = xmonad $ def
       , ("M-m", windows $ greedyView "4")
       , ("M-,", windows $ greedyView "5")
       , ("M-.", windows $ greedyView "6")
+      , ("M-]", windows $ greedyView "7")
       ]
   }

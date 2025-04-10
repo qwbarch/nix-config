@@ -5,6 +5,7 @@ let
     # Applications
     bitwarden
     spotify
+    htop-vim
 
     # Programming
     vscode

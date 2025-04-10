@@ -1,3 +1,4 @@
 [
   ./flameshot
+  ./wallpaper-engine
 ]
