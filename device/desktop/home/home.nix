@@ -3,7 +3,6 @@
 let
   packages = with pkgs; [
     # Programming
-    git
     vscode
   ];
 in
@@ -27,4 +26,6 @@ in
   home = {
     inherit stateVersion packages;
   };
+
+  imports = (import ./program) ++ (import ./service);
 }
