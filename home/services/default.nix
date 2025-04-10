@@ -1,6 +1,0 @@
-[
-  ./flameshot
-  ./polybar
-  ./picom
-  ./redshift
-]
