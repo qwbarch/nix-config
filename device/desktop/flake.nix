@@ -24,15 +24,23 @@
       # this value at the release version of the first install of this system.
       # Before changing this value read the documentation for this option
       # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-      stateVersion = "22.05"; # Did you read the comment?
+      stateVersion = "24.11"; # Did you read the comment?
     in
     {
-      nixosConfigurations = import ./system/configuration.nix {
-        inherit pkgs system hostName stateVersion; 
-        lib = nixpkgs.lib;
+      nixosConfigurations = {
+        ${hostName} = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit hostName stateVersion; };
+          modules = [./system/configuration.nix];
+        };
       };
-      homeManagerConfiguration = import ./home/home.nix {
-        inherit pkgs home-manager system username stateVersion;
+      homeConfigurations = {
+        "${username}@${hostName}" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit home-manager system username stateVersion;
+          };
+          modules = [./home/home.nix];
+        };
       };
     };
 }
