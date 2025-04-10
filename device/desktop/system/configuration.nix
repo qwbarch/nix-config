@@ -1,4 +1,4 @@
-{ pkgs, hostName, stateVersion, username, ... }:
+{ pkgs, hostName, stateVersion, username, config, ... }:
 
 {
   imports =
@@ -11,8 +11,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = hostName;
-
-
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -37,6 +35,17 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
+  };
+
+  hardware = {
+    graphics.enable = true; # OpenGL
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      open = false; # Don't use the open-source driver.
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
   # Enable the X11 windowing system.

@@ -1,4 +1,6 @@
 [
   ./alacritty
   ./git
+  ./neovim
+  ./rofi
 ]
