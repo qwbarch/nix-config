@@ -5,9 +5,13 @@
       url = "github:nix-community/home-manager"; 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nurpkgs = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs = { self, nixpkgs, home-manager, nurpkgs }:
     let
       username = "qwbarch";
       hostName = "edward-nixos";
@@ -16,6 +20,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [ nurpkgs.overlay ];
       };
 
       # This value determines the NixOS release from which the default
