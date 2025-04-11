@@ -9,6 +9,7 @@ let
 
     # Programming
     vscode
+
   ];
 in
 {

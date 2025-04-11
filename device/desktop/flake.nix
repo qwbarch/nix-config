@@ -17,10 +17,14 @@
       hostName = "edward-nixos";
       system = "x86_64-linux";
 
+      localOverlay = previous: final: {
+        wallpaper-engine = final.callPackage ./overlay/wallpaper-engine.nix { };
+      };
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ nurpkgs.overlay ];
+        overlays = [ localOverlay nurpkgs.overlay ];
       };
 
       # This value determines the NixOS release from which the default

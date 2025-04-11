@@ -1,6 +1,6 @@
 {
   services.linux-wallpaperengine = {
-    enable = true;
+    enable = false;
     assetsPath = ~/.local/share/Steam/steamapps/common/wallpaper_engine/assets;
     clamping = "clamp";
     wallpapers = [

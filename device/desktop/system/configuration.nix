@@ -1,10 +1,23 @@
-{ pkgs, hostName, stateVersion, config, ... }:
+{ pkgs, hostName, stateVersion, config, username, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -77,17 +90,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.qwbarch = {
     isNormalUser = true;
-    description = "qwbarch";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "qwbarch";
+  services.xserver.displayManager.autoLogin.user = username;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -98,6 +106,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    home-manager
+
+    # Wallpaper Engine.
+    gst123
+    vulkan-loader
+    vulkan-headers
+    kdePackages.qtmultimedia
+    kdePackages.wallpaper-engine-plugin
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
