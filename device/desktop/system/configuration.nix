@@ -1,4 +1,4 @@
-{ pkgs, hostName, stateVersion, config, username, ... }:
+{ pkgs, hostName, stateVersion, username, config, ... }:
 
 {
   imports =
@@ -23,12 +23,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = hostName; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = hostName;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -52,24 +47,42 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.xserver = {
+    enable = true;
+     windowManager.xmonad = {
+         enable = true;
+         enableContribAndExtras = true;
+         extraPackages = haskellPackges: [
+         ];
+         config = builtins.readFile ../xmonad/Main.hs;
+       };
+    displayManager = {
+      defaultSession = "none+xmonad";
+      autoLogin = {
+        enable = true;
+        user = username;
+      };
+    };
+    libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat"; # Disable mouse acceleration.
+        middleEmulation = false; # Disable emulating middle click using left + right click.
+      };
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
+    options = "caps:swapescape";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -84,48 +97,29 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.qwbarch = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+    #  thunderbird
+    ];
   };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = username;
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    home-manager
-
-    # Wallpaper Engine.
-    gst123
-    vulkan-loader
-    vulkan-headers
-    kdePackages.qtmultimedia
-    kdePackages.wallpaper-engine-plugin
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
+  environment.systemPackages = with pkgs; [];
 
   # Some programs need SUID wrappers, can be configured further or are
+  programs.steam.enable = true;
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.steam.enable = true;
 
   # List services that you want to enable:
 
